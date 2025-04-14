@@ -1,5 +1,17 @@
-//
-// Created by student on 07/04/2025.
-//
+#include "Ant.hpp"
+#include "Grid.hpp"
+#include <cstdlib>
 
-#include "Ant.h"
+Ant::Ant(int startX, int startY) : Bug(startX, startY) {}
+
+void Ant::move(Grid &grid) {
+    // Ant movement logic here (next step)
+}
+
+void Ant::breed(Grid &grid) {
+    // Ant breeding logic (next step)
+}
+
+char Ant::getSymbol() const {
+    return 'A';
+}
