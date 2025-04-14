@@ -1,16 +1,17 @@
-//
-// Created by student on 07/04/2025.
-//
+#ifndef DOODLEBUG_HPP
+#define DOODLEBUG_HPP
 
-#ifndef DOODLEBUG_H
-#define DOODLEBUG_H
+#include "Bug.hpp"
 
+class Doodlebug : public Bug {
+private:
+    int starveCounter;
 
-
-class Doodlebug {
-
+public:
+    Doodlebug(int startX, int startY);
+    void move(Grid &grid) override;
+    void breed(Grid &grid) override;
+    char getSymbol() const override;
 };
 
-
-
-#endif //DOODLEBUG_H
+#endif
