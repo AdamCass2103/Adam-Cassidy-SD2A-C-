@@ -1,16 +1,21 @@
-//
-// Created by student on 07/04/2025.
-//
+#ifndef GRID_HPP
+#define GRID_HPP
 
-#ifndef GRID_H
-#define GRID_H
-
-
+#include <vector>
+#include "Bug.hpp"
 
 class Grid {
+private:
+    Bug* cells[10][10];
 
+public:
+    Grid();
+    ~Grid();
+    void display() const;
+    Bug* getCell(int x, int y) const;
+    void setCell(int x, int y, Bug* bug);
+    void removeBug(int x, int y);
+    bool isValid(int x, int y) const;
 };
 
-
-
-#endif //GRID_H
+#endif
