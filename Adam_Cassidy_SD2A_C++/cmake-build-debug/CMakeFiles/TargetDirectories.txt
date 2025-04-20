@@ -1,0 +1,3 @@
+C:/Users/student/Downloads/Adam_Cassidy_SD2A_C++/cmake-build-debug/CMakeFiles/Adam_Cassidy_SD2A_C_.dir
+C:/Users/student/Downloads/Adam_Cassidy_SD2A_C++/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/student/Downloads/Adam_Cassidy_SD2A_C++/cmake-build-debug/CMakeFiles/rebuild_cache.dir
