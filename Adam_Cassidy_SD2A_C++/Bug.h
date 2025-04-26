@@ -1,13 +1,13 @@
 #ifndef BUG_H
 #define BUG_H
 
-#include <list>  // NEW: for path
-#include <string> // NEW: for getTypeName()
-#include "Position.h"  // NEW: for position struct
+#include <list>
+#include <string>
+#include "Position.h"
 
 class Grid; // Forward declaration
 
-enum class Direction { North = 1, East, South, West };  // NEW: better directions
+enum class Direction { North = 1, East, South, West };
 
 class Bug {
 protected:
@@ -17,7 +17,7 @@ protected:
     int size;
     bool alive;
     int breedCounter;
-    std::list<Position> path; // NEW: track life history
+    std::list<Position> path;
 
 public:
     Bug(int id, Position pos, Direction dir, int size);
