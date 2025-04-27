@@ -1,0 +1,3 @@
+C:/Users/student/CLionProjects/Adam-Cassidy-SD2A-C1/cmake-build-default/CMakeFiles/Adam_Cassidy_SD2A_C1.dir
+C:/Users/student/CLionProjects/Adam-Cassidy-SD2A-C1/cmake-build-default/CMakeFiles/edit_cache.dir
+C:/Users/student/CLionProjects/Adam-Cassidy-SD2A-C1/cmake-build-default/CMakeFiles/rebuild_cache.dir
