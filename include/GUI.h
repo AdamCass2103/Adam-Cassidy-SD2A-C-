@@ -1,16 +1,13 @@
-//
-// Created by student on 27/04/2025.
-//
-
-#ifndef GUI_H
-#define GUI_H
-
-
+#pragma once
+#include <SFML/Graphics.hpp>
 
 class GUI {
-
+private:
+    sf::Texture bugTexture;
+    sf::Texture hopperTexture;
+    sf::Texture doodlebugTexture;
+    sf::Font font;
+    
+public:
+    bool loadResources();  // Declaration
 };
-
-
-
-#endif //GUI_H

@@ -3,43 +3,32 @@ project(Adam_Cassidy_SD2A_C1)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Set SFML_DIR to the path where SFMLConfig.cmake is located
-set(SFML_DIR "C:/SFML-3.0.0-windows-gcc-14.2.0-mingw-64-bit/lib/cmake/SFML")
+#
+# If you specifically need your desktop path:
+ set(SFML_DIR "C:/Users/student/Desktop/SFML-2.6.2/SFML-2.6.2/lib/cmake/SFML")
 
-find_package(SFML 3.0 REQUIRED graphics window system)
+# Find SFML components
+find_package(SFML 2.6  COMPONENTS graphics window system REQUIRED)
 
+# CLion-specific runtime configuration
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
-# Find SFML packages
-find_package(SFML 3.0 COMPONENTS graphics window system REQUIRED)
-
-# 🛠 This forces static linking and proper Console app for MinGW
-set(CMAKE_EXE_LINKER_FLAGS "-static")
+# Add all source files (relative to CMakeLists.txt)
+add_executable(Adam_Cassidy_SD2A_C1
+        src/main.cpp
+        src/Ant.cpp
+        src/Doodlebug.cpp
+        src/Bug.cpp
+        src/Grid.cpp
+        src/GUI.cpp
+        src/Hopper.cpp
+)
 
 # Include directories
-include_directories(
-        ${CMAKE_SOURCE_DIR}/include
+target_include_directories(Adam_Cassidy_SD2A_C1 PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${SFML_INCLUDE_DIR}
 )
-
-# Source files
-set(SOURCE_FILES
-        src/main.cpp
-        src/Grid.cpp
-        src/Bug.cpp
-        src/Ant.cpp
-        src/Doodlebug.cpp
-        src/Hopper.cpp
-        src/GUI.cpp  # Add your GUI implementation
-)
-
-# Add executable
-add_executable(Adam_Cassidy_SD2A_C1 src/main.cpp
-        src/Grid.cpp
-        src/Bug.cpp
-        src/Ant.cpp
-        src/Doodlebug.cpp
-        src/Hopper.cpp
-        src/GUI.cpp)
 
 # Link SFML libraries
 target_link_libraries(Adam_Cassidy_SD2A_C1
@@ -48,5 +37,25 @@ target_link_libraries(Adam_Cassidy_SD2A_C1
         sfml-system
 )
 
-# Copy assets to build directory (optional)
-file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+# Windows-specific: Copy DLLs to build directory
+if(WIN64)
+    add_custom_command(TARGET Adam_Cassidy_SD2A_C1 POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            "${SFML_DIR}/../../../bin/sfml-graphics-2.dll"
+            "${SFML_DIR}/../../../bin/sfml-window-2.dll"
+            "${SFML_DIR}/../../../bin/sfml-system-2.dll"
+            $<TARGET_FILE_DIR:Adam_Cassidy_SD2A_C1>
+            COMMENT "Copying SFML DLLs to output directory"
+    )
+endif()
+
+# Copy resource files (bugs.txt and assets)
+file(COPY
+        bugs.txt
+        DESTINATION ${CMAKE_BINARY_DIR}
+)
+
+file(COPY
+        assets/
+        DESTINATION ${CMAKE_BINARY_DIR}/assets
+)
