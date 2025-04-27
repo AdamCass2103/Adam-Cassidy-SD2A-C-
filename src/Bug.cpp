@@ -1,4 +1,4 @@
-#include "Bug.h"
+#include "../include/Bug.h"
 
 Bug::Bug(int id, Position pos, Direction dir, int size)
     : id(id), position(pos), direction(dir), size(size), alive(true), breedCounter(0) {

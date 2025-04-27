@@ -5,10 +5,11 @@
 
 class Ant : public Bug {
 public:
-    Ant(int startX, int startY);
+    Ant(int id, Position pos, Direction dir, int size);
     void move(Grid &grid) override;
     void breed(Grid &grid) override;
     char getSymbol() const override;
+    std::string getTypeName() const override;
 };
 
 #endif

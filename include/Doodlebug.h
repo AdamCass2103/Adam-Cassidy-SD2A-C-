@@ -8,10 +8,11 @@ private:
     int starveCounter;
 
 public:
-    Doodlebug(int startX, int startY);
+    Doodlebug(int id, Position pos, Direction dir, int size);
     void move(Grid &grid) override;
     void breed(Grid &grid) override;
     char getSymbol() const override;
+    std::string getTypeName() const override;
 };
 
 #endif

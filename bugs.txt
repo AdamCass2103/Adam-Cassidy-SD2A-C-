@@ -1,0 +1,3 @@
+Ant 101 2 3 East 10
+Doodlebug 102 5 5 North 15
+Hopper 103 6 6 South 12 3
