@@ -1,5 +1,5 @@
-#include "include/Hopper.h"
-#include "include/Grid.h"
+#include "../include/Hopper.h"
+#include "../include/Grid.h"
 #include <cstdlib>
 
 Hopper::Hopper(int id, Position pos, Direction dir, int size, int hopLen)

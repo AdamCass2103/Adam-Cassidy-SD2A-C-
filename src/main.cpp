@@ -1,11 +1,29 @@
 #include <iostream>
 #include <fstream>
-#include "include/Grid.h"
-#include "include/Ant.h"
-#include "include/Doodlebug.h"
-#include "include/Hopper.h"
-#include "include/Position.h"
+#include "../include/Grid.h"
+#include "../include/Ant.h"
+#include "../include/Doodlebug.h"
+#include "../include/Hopper.h"
+#include "../include/Position.h"
+#include <SFML/Graphics.hpp>
 
+int main() {
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Bug's Life Simulation");
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        // Add your game rendering code here (for now, just a simple color)
+        window.display();
+    }
+
+    return 0;
+}
 Direction stringToDirection(const std::string& dirStr) {
     if (dirStr == "North") return Direction::North;
     if (dirStr == "East") return Direction::East;

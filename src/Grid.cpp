@@ -1,4 +1,4 @@
-#include "include/Grid.h"
+#include "../include/Grid.h"
 #include <iostream>
 #include <fstream>
 #include <thread>

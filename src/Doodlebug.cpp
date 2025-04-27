@@ -1,5 +1,5 @@
-#include "include/Doodlebug.h"
-#include "include/Grid.h"
+#include "../include/Doodlebug.h"
+#include "../include/Grid.h"
 
 Doodlebug::Doodlebug(int id, Position pos, Direction dir, int size)
     : Bug(id, pos, dir, size), starveCounter(0) {}
