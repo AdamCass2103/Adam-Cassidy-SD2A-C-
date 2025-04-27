@@ -8,8 +8,22 @@
 #include <SFML/Graphics.hpp>
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Bug's Life Simulation");
+    // Create window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Bug Simulation");
 
+    // Load texture
+    sf::Texture bugTexture;
+    if (!bugTexture.loadFromFile("assets/textures/ant.png")) {
+        std::cerr << "Failed to load texture!" << std::endl;
+        return -1;
+    }
+
+    // Create sprite
+    sf::Sprite bugSprite;
+    bugSprite.setTexture(bugTexture);
+    bugSprite.setPosition(400, 300); // Center of window
+
+    // Game loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -17,19 +31,20 @@ int main() {
                 window.close();
         }
 
-        window.clear();
-        // Add your game rendering code here (for now, just a simple color)
+        window.clear(sf::Color::White); // Clear with white background
+        window.draw(bugSprite); // Draw the sprite
         window.display();
     }
 
     return 0;
 }
+// Direction conversion function
 Direction stringToDirection(const std::string& dirStr) {
     if (dirStr == "North") return Direction::North;
     if (dirStr == "East") return Direction::East;
     if (dirStr == "South") return Direction::South;
     if (dirStr == "West") return Direction::West;
-    return Direction::North; // default
+    return Direction::North; // Default
 }
 
 void initializeBugBoard(Grid& grid) {
